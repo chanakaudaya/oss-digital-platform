@@ -1,6 +1,6 @@
 ## Introduction
 
-Nearly every enterprise is going through some sort of digital transformation. Early adopters, late boomers, methodical players, every enterprise is trying to modernize their enterprise IT ecosystem to improve their efficiency and become a leader in their respective enterprise domain. If you are an enterprise architect who is responsible for building a digital platform, modernize an existing IT platform or lift and shift an existing deployment into cloud, there are 100s of different software and technology vendors who can support your effort. The days of proprietary software is long gone and people are more and more migrating towards open source software(OSS). One of the major challenges of adopting OSS is the maintenance overhead. But that challenge is absorbed by the mega cloud vendors as well as other cloud services offered by the vendors who created these OSS IP. 
+Digital business landscape is helping businesses to grow beyond geographical boundaries. Transforming your business into a digital business is no longer an optional thing, rather it has become a necessity. Early adopters, late boomers, methodical players, every enterprise is trying to modernize their enterprise IT ecosystem to improve the efficiency and become a leader in their respective enterprise domain. If you are an enterprise architect who is responsible for building a digital platform from scratch, modernize an existing IT platform or lift and shift an existing deployment into cloud, there are 100s of different software and technology vendors available to support your effort. The days of proprietary software is long gone and people are more and more migrating towards open source software(OSS). One of the major challenges of adopting OSS is the maintenance overhead. But that challenge is absorbed by the mega cloud vendors as well as other cloud services offered by the vendors who created these OSS IP. 
 
 In this post, I’m going to discuss about building a modern digital platform with OSS. Most of the software components I’m using here are free to download and play around. If you really need to build a production grade system, it is recommended to get commercial support from the respective vendors. The other important aspect of this architecture is that it is vendor neutral. You can replace any vendor with OSS or proprietary software without impacting the overall architecture. The components are loosely coupled and can deploy and run independently. 
 
@@ -15,7 +15,29 @@ The core design principles of this architecture are
 - Modularity and replaceability
 - Computing efficiency
 
-If you are familiar with the enterprise architecture, the above mentioned design principles are not new for you. Those are concepts we have been discussing day in day out within enterprise architecture panels. The reality check though is that not all these factors were possible to adopt in the past because of the technical limitations. But with the emerging OSS solutions, almost all of these design principles can be adopted with proper architecture and design. 
+If you are familiar with the enterprise architecture, the above mentioned design principles are not new for you. Those are concepts we have been discussing day in day out within enterprise architecture panels. Let’s understand them at a higher level.
+
+Loose coupling between components allow each and individual component to grow themselves without worrying about other components or without distracting the overall system behavior. If the components are coupled together, every change you made will become a change in the dependant component and it can have a riffle effect to the entire system.
+
+Standard interfaces allows you to interact with many different channels without modifying a single line of code. As an example, if you expose your business services through REST/HTTP interface, multiple consumer channels like web, mobile and partner systems can interact with that pretty easily. 
+
+Agile development is about how frequently you are able to release a given feature while maintaining the overall quality of the system. In a typical enterprise, it is taking weeks to months to years to rollout a project which has taken those enterprises aback. But with the agile development, new features can be implemented ent to end within hours to days and rollout into production systems with high quality. 
+
+Resiliency is a key concept in modern enterprise systems because the components are distributed across various hosts and mostly connected over the network. Network can go down or degrade at any given time and that should not put the entire system into a blackout stage. Instead, these intermittant failures needs to be absorbed by the components and they should be designed in a manner to withstand those failures. 
+
+Open Source Software (OSS) is becoming the defacto way of building software systems in enterprise because of the many advantages it offers over a proprietary software. Some of them are
+- Transparency of code and the development processes
+- Flexibility to modify or extend based on requirements
+- Relatively low price
+- Non vendor-locking
+- Tryout everything before you pay a penny
+
+Modularity, loose coupling, standard interfaces and open source software allows you to build a system which can be replaced at any given time without worrying about the user experience. As an example, you could replace an API Management vendor within a month if you built your APIs with standard definitions like OAS 3.0 or Swagger 2.0 withut much customizations. Replaceability is also critical when designing a platform for next 5-10 years because the vendors can go in different directions within this longer time duration. 
+
+Computing efficiency or resource efficiency is critical when it comes to building this kind of platforms since they do not bring the ROI immediately. So rather than overspending on resources, having a flexible yet scalable deployment models allows the business leaders to justify their decisions on building digital platforms to the highest level people like CEOs.
+
+The reality check though is that not all these factors were possible to adopt in the past because of the technical limitations. But with the emerging OSS solutions, almost all of these design principles can be adopted with proper architecture and design. 
+
 
 ## Architecture
 It is absolutely not possible to finish an enterprise architecture discussion without mentioning the words “microservices”, “containers” and “agility”. Because of that fact and for good reasons, the architecture we are going to design adheres to the microservices standards and will be deployed in containers with agility at its core. 
